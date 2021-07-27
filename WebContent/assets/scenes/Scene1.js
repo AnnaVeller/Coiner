@@ -33,23 +33,46 @@ class Scene1 extends Phaser.Scene {
 		this.cursors = this.input.keyboard.createCursorKeys();
 		this.physics.add.existing(this.fPlayer);
 		this.physics.add.existing(this.fCoin);
-		this.physics.add.overlap(this.fPlayer, this.fCoin, this.hit, null, this)
+		this.physics.add.overlap(this.fPlayer, this.fCoin, this.hit, null, this);
+		
+		this.createScore();
+	
+	}
+	
+	createScore(){
+		this.score = 0;
+		
+		var style = { font: '20px Arial', fill: '#fff' };
+		
+		this.scoreText = this.add.text(20, 20, 'Счёт: ' + this.score, style);
+		
 	}
 
 	update() {
+		
 	}
 
 
 	hit(){
 		this.fCoin.x = Phaser.Math.Between(10, 750);
 		this.fCoin.y = Phaser.Math.Between(10, 400);
+		this.score += 1; 
+		this.scoreText.setText('Счёт: ' + this.score);
+		
+		/*this.tweens.add({  // анимация
+			targets: this.fPlayer,
+			duration: 200, 
+			scaleX: 1.2, 
+			scaleY: 1.2,   // шкала по y увеличивается до 1.2
+			//yoyo: true   // возврат размера к 1, 1
+		});*/
 	}
 
 	update() {
-		if (this.cursors.down.isDown) {this.fPlayer.y += 10;}
-		if (this.cursors.up.isDown) {this.fPlayer.y -= 10;}
-		if (this.cursors.right.isDown) {this.fPlayer.x += 10;}
-		if (this.cursors.left.isDown) {this.fPlayer.x -= 10;}
+		if (this.cursors.down.isDown && this.fPlayer.y <= 395) {this.fPlayer.y += 10;}
+		if (this.cursors.up.isDown && this.fPlayer.y >= 55) {this.fPlayer.y -= 10;}
+		if (this.cursors.right.isDown && this.fPlayer.x <= 755) {this.fPlayer.x += 10;}
+		if (this.cursors.left.isDown && this.fPlayer.x >= 40) {this.fPlayer.x -= 10;}
 	}
 
 	/* END-USER-CODE */
