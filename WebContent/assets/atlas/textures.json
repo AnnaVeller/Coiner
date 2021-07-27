@@ -1,0 +1,56 @@
+{
+  "textures": [
+    {
+      "image": "textures1.png",
+      "frames": [{
+        "filename": "player",
+        "trimmed": true,
+        "rotated": false,
+        "frame": {
+          "x": 2,
+          "y": 2,
+          "w": 600,
+          "h": 900
+        },
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 600,
+          "h": 900
+        },
+        "sourceSize": {
+          "w": 600,
+          "h": 900
+        }
+      }]
+    },
+    {
+      "image": "textures2.png",
+      "frames": [{
+        "filename": "coin",
+        "trimmed": true,
+        "rotated": false,
+        "frame": {
+          "x": 2,
+          "y": 2,
+          "w": 701,
+          "h": 701
+        },
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 701,
+          "h": 701
+        },
+        "sourceSize": {
+          "w": 701,
+          "h": 701
+        }
+      }]
+    }
+  ],
+  "meta": {
+    "app": "Phaser Editor - Atlas Generator",
+    "version": "2"
+  }
+}
